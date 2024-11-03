@@ -140,16 +140,16 @@ const PaymentPage = ({ username }) => {
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
 
             <div className="cont h-[83vh] max-sm:h-[84vh] max-xl:h-[91vh] overflow-y-scroll ">
-               
+
                 <div className="bgimage border-2 border-black h-[25vh] lg:h-[45vh] w-full bg-slate-400 object-contain   overflow-hidden">
                     <img className='  w-full h-full' src={currentuser.coverpicture} alt="backgroundimage" />
                 </div>
                 <div className="main  text-center bg-white text-black pb-10 ">
-                    
+
                     <div className='profileimg border border-black h-[15vh] rounded-xl w-28 relative max-sm:left-[38%] left-[46%] bottom-[8vh] object-contain   overflow-hidden'>
                         <img className='rounded-xl  w-full h-full' src={currentuser.profilepicture} alt="profilepicture" />
                     </div>
-                    
+
                     <div className='info bottom-10 relative'>
                         <div className="username font-bold text-3xl">{username}</div>
                         <div className="caption text-lg">You can always donate for a Chai</div>
