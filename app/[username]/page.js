@@ -1,10 +1,12 @@
 import React from 'react'
 import PaymentPage from '../Components/PaymentPage'
 
-const page = ({ params }) => {
+const page = async({ params }) => {
+  const { username } = await params
     return (
         <>
-           <PaymentPage username={params.username}/>
+
+           <PaymentPage username={username}/>
         </>
     )
 }
@@ -12,9 +14,10 @@ const page = ({ params }) => {
 export default page
 
 export async function generateMetadata({ params }) {
+  const { username } = await params
     
     return {
-      title: `Support ${params.username} - Get me a Chai`,
+      title: `Support ${username} - Get me a Chai`,
     }
   }
    

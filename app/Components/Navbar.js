@@ -4,6 +4,7 @@ import React from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const Navbar = () => {
   const [dropdown, setdropdown] = useState(false)
@@ -14,7 +15,7 @@ const Navbar = () => {
     <div>
       <nav className='border md:h-16 px-5 border-black flex-col md:flex-row flex justify-between  bg-slate-950 text-white'>
         <Link href='/' className="flex justify-center items-center gap-2">
-          <div className="w-10"><img className="rounded-full" src="tea.gif" alt="teaimg" /></div>
+          <div className="w-10"><Image height={50} width={50} className="rounded-full" src="/tea.gif" alt="teaimg" /></div>
           <div>Buy me a Chai</div>
         </Link>
         <ul className='flex gap-0 md:gap-5 pt-2 justify-center'>
@@ -27,10 +28,10 @@ const Navbar = () => {
 
             <button type="button" className=" h-10 flex justify-center items-center text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm  text-center me-2 mb-2 pl-4">
               <div className='flex gap-2 justify-center items-center'>
-                <img className='rounded-full' width={30} src={session.user.image} alt="" />
+              <Image height={37} width={37}  className='rounded-full'  src={session.user.image?session.user.image:"/man.gif"} alt="user" />
                 <div>{session.user.name}</div>
               </div>
-              <div className=' invert  '><img width={40} src="dropdown.svg" alt="" /></div>
+              <div className=' invert  '><Image height={50} width={50}  src="/dropdown.svg" alt="" /></div>
             </button>
             <div className={dropdown ? 'bg-white border border-gray-300 rounded-md shadow-lg' : 'hidden bg-white border border-gray-300 rounded-md shadow-lg'}>
            

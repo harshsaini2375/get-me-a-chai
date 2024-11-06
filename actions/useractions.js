@@ -54,7 +54,16 @@ export const fetchuser = async (username) => {
 export const fetchpayments = async (username) => {
     await connectDB()
     let mypayments = await Payment.find({ "to_user": username, "done": true }).limit(10).lean()
+
     mypayments.sort((a, b) => b.amount - a.amount);
+    mypayments.forEach(obj=>{
+        
+        delete obj._id;
+        delete obj.__v;   
+        // console.log(obj);
+            
+    })
+
 
     return mypayments
 }

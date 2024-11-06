@@ -3,15 +3,14 @@ import React from 'react'
 import { useSession, signIn, signOut } from "next-auth/react"
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
-import { fetchuser } from '@/actions/useractions'
-import { updateprofile } from '@/actions/useractions'
+import { fetchuser, updateprofile } from '@/actions/useractions'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const page = () => {
   const { data: session, update } = useSession()
   const router = useRouter();
-  const [form, setform] = useState({})
+  const [form, setform] = useState({name:"", Email:"", profilepicture:"", coverpicture:"", razorpayid:"", razorpaysecret:""})
 
   useEffect(() => {
     document.title = 'Dashboard - Get me a chai'
@@ -37,7 +36,7 @@ const page = () => {
   const handleSubmit = async (element) => {
 
     await updateprofile(element, session.user.name)
-    update()
+     update()
 
     toast('Profile updated', {
       position: "top-right",
@@ -58,7 +57,7 @@ const page = () => {
 
     if (u) {
 
-      setform({ Email: u.Email, name: u.name })
+      setform({...form,  Email: u.Email, name: u.name })
 
     }
   }

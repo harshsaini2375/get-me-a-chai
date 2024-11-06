@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 export default function Home() {
   return (
     <>
@@ -6,7 +7,7 @@ export default function Home() {
         <div className="intro text-white flex flex-col justify-center items-center gap-3 py-20  h-fit ">
           <div className="flex justify-center items-center gap-4">
             <div className="font-bold text-3xl">Buy me a Chai</div>
-            <div className="w-12"><img className="rounded-full" src="tea.gif" alt="teaimg" /></div>
+            <div className="w-12"><Image height={50} width={50} className="rounded-full" src="/tea.gif" alt="teaimg" /></div>
           </div>
           <p className="md:p-0 px-5 text-center">A crowdfunding platform for creators. Get funded by your fans and followers. Start now!</p>
 
@@ -28,19 +29,19 @@ export default function Home() {
 
           <div className="flex w-screen justify-around flex-col md:flex-row">
             <div className="action flex flex-col items-center md:p-0 py-2">
-              <div className="w-16 "><img className="rounded-full" src="man.gif" alt="mangif" /></div>
+              <div className="w-16 "><Image height={70} width={70}className="rounded-full" src="/man.gif" alt="mangif" /></div>
               <span className="font-bold">Fans want to help</span>
               <span className="text-center">Your fans are avalaible to help you</span>
             </div>
 
             <div className="action flex flex-col items-center  md:p-0 py-2">
-              <div className="w-16 "><img className="rounded-full" src="coin.gif" alt="coingif" /></div>
+              <div className="w-16 "><Image height={70} width={70} className="rounded-full" src="/coin.gif" alt="coingif" /></div>
               <span className="font-bold">Fans want to contribute</span>
               <span className="text-center">Your fans are willing to contribute financially</span>
             </div>
 
             <div className="action flex flex-col items-center  md:p-0 py-2">
-              <div className="w-16 "><img className="rounded-full" src="group.gif" alt="groupgif" /></div>
+              <div className="w-16 "><Image height={70} width={70}     className="rounded-full" src="/group.gif" alt="groupgif" /></div>
               <span className="font-bold">Fans want to collaborate</span>
               <span className="text-center">Your fans are ready to collaborate with you</span>
             </div>

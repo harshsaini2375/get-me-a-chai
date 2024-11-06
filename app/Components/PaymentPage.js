@@ -10,6 +10,7 @@ import { useSearchParams } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { useSession } from 'next-auth/react'
 import { useRef } from 'react'
+import Image from 'next/image'
 
 
 const PaymentPage = ({ username }) => {
@@ -142,12 +143,13 @@ const PaymentPage = ({ username }) => {
             <div className="cont h-[83vh] max-sm:h-[84vh] max-xl:h-[91vh] overflow-y-scroll ">
 
                 <div className="bgimage border-2 border-black h-[25vh] lg:h-[45vh] w-full bg-slate-400 object-contain   overflow-hidden">
-                    <img className='  w-full h-full' src={currentuser.coverpicture} alt="backgroundimage" />
+                    
+                    <Image  objectfit='cover' width={100} height={40} className='  w-full h-[45vh]' src={currentuser.coverpicture?currentuser.coverpicture:"https://i.pinimg.com/736x/03/2f/0a/032f0a009ffa91d05fb0266aec0ea1f5.jpg"} alt="backgroundimage" />
                 </div>
                 <div className="main  text-center bg-white text-black pb-10 ">
 
                     <div className='profileimg border border-black h-[15vh] rounded-xl w-28 relative max-sm:left-[38%] left-[46%] bottom-[8vh] object-contain   overflow-hidden'>
-                        <img className='rounded-xl  w-full h-full' src={currentuser.profilepicture} alt="profilepicture" />
+                    <Image layout='fill' objectfit='contain' className='rounded-xl  w-full h-full' src={currentuser.profilepicture?currentuser.profilepicture:"https://i.pinimg.com/1200x/39/f9/f9/39f9f978856847e686f6b3ba2f80f02b.jpg"} alt="profilepicture" />
                     </div>
 
                     <div className='info bottom-10 relative'>
@@ -165,7 +167,7 @@ const PaymentPage = ({ username }) => {
                             {currentpayments.map((element) => {
 
                                 return <li key={element.oid} className='border border-black p-1 rounded-full pl-2 list-none flex gap-1  items-center m-3'>
-                                    <img className=' border  border-black rounded-full' width={35} src="man.gif" alt="img" />
+                                    <Image  className=' border  border-black rounded-full' width={35} height={35} src="/man.gif" alt="img" />
                                     <div className='text-left' >{element.name} donated ₹{element.amount} with a message "{element.message}"</div>
                                 </li>
 
