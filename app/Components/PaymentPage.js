@@ -156,14 +156,14 @@ const PaymentPage = ({ username }) => {
                         <div className="username font-bold text-3xl">{username}</div>
                         <div className="caption text-lg">You can always donate for a Chai</div>
                         <div className='flex justify-center items-center gap-3'>
-                            <div className="info text-slate-500">{currentpayments.length} Payments . </div>
+                            <div className="info text-slate-500">{currentpayments.length} Payments  </div>
                             <div className="info text-slate-500">  &#8377;{gettotal()} raised</div>
                         </div>
                     </div>
                     <div className="payment m-auto w-[95vw] lg:w-[70vw] flex items-center  lg:flex-row flex-col gap-10">
                         <div className="msg w-full lg:w-1/2 h-[50vh] border border-black p-5 rounded-xl overflow-y-scroll overflow-x-hidden">
                             <h2 className='font-bold text-xl mb-3'>Payments</h2>
-                            {currentpayments.length == 0 && <div>No payments yet.</div>}
+                            {currentpayments.length == 0 && <div>No payments yet</div>}
                             {currentpayments.map((element) => {
 
                                 return <li key={element.oid} className='border border-black p-1 rounded-full pl-2 list-none flex gap-1  items-center m-3'>

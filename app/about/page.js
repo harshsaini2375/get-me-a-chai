@@ -3,7 +3,8 @@ import React from 'react'
 const page = () => {
   return (
     <>
-    
+    <div>about</div>
+{/*     
    <div className="content w-[98vw] h-[79vh] max-sm:h-[79vh] max-xl:h-[91vh]  overflow-hidden hover:overflow-y-scroll py-5 px-10 text-lg">
 
 <p className="mb-3 text-white dark:text-gray-400 first-line:uppercase first-line:tracking-widest first-letter:text-7xl first-letter:font-bold first-letter:text-white dark:first-letter:text-gray-100 first-letter:me-3 first-letter:float-start">Patreon is a powerful monetization platform operated by Patreon, Inc. Its like a cozy corner of the internet where content creators ,whether they are artists, podcasters, writers, or YouTubers ,can set up shop. Here is the lowdown in a nutshell &#x3A;</p>
@@ -20,7 +21,7 @@ const page = () => {
 <br />
 
 <p className="text-gray-500 dark:text-gray-400">San Francisco Roots&#x3A; The whole shebang is headquartered in San Francisco, California </p>
-</div> 
+</div>  */}
     </>
   )
 }

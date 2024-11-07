@@ -25,7 +25,7 @@ const Page = () => {
                 <div className="border  rounded-md w-full max-w-sm mx-1  p-6 border-white dark:bg-gray-900" id="login-model">
 
                     <p className="text-2xl font-bold dark:text-white text-center">Login to Continue</p>
-                    <p className="dark:text-gray-200 text-center">It will take less than 2 minutes</p>
+                    <p className="dark:text-gray-200 text-center">It will take less than two minutes</p>
 
                     <div className="mt-4">
                         <a href="#" className="block">
