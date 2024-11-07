@@ -15,7 +15,7 @@ const Navbar = () => {
     <div>
       <nav className='border md:h-16 px-5 border-black flex-col md:flex-row flex justify-between  bg-slate-950 text-white'>
         <Link href='/' className="flex justify-center items-center gap-2">
-          <div className="w-10"><Image height={50} width={50} className="rounded-full" src="/tea.gif" alt="teaimg" /></div>
+          <div className="w-10"><Image height={50} width={50} className="rounded-full" src="/tea.gif" alt="tea" /></div>
           <div>Buy me a Chai</div>
         </Link>
         <ul className='flex gap-0 md:gap-5 pt-2 justify-center'>

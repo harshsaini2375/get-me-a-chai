@@ -33,7 +33,7 @@ const PaymentPage = ({ username }) => {
         }
 
 
-    }, [router, session])
+    }, [router, session, username])
 
 
     useEffect(() => {
@@ -53,7 +53,7 @@ const PaymentPage = ({ username }) => {
         }
 
 
-    }, [])
+    }, [username])
 
 
 
