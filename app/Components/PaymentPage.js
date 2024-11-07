@@ -53,7 +53,7 @@ const PaymentPage = ({ username }) => {
         }
 
 
-    }, [username])
+    }, [username, params])
 
 
 
