@@ -7,7 +7,7 @@ import { fetchuser, updateprofile } from '@/actions/useractions'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const page = () => {
+const Page = () => {
   const { data: session, update } = useSession()
   const router = useRouter();
   const [form, setform] = useState({name:"", Email:"", profilepicture:"", coverpicture:"", razorpayid:"", razorpaysecret:""})
@@ -111,4 +111,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
