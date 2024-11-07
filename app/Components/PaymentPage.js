@@ -168,7 +168,7 @@ const PaymentPage = ({ username }) => {
 
                                 return <li key={element.oid} className='border border-black p-1 rounded-full pl-2 list-none flex gap-1  items-center m-3'>
                                     <Image  className=' border  border-black rounded-full' width={35} height={35} src="/man.gif" alt="img" />
-                                    <div className='text-left' >{element.name} donated  &#8377;{element.amount} with a message "{element.message}"</div>
+                                    <div className='text-left' >{element.name} donated  &#8377;{element.amount} with a message &#34;{element.message}&#34;</div>
                                 </li>
 
                             })}
