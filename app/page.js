@@ -9,7 +9,7 @@ export default function Home() {
             <div className="font-bold text-3xl">Buy me a Chai</div>
             <div className="w-12"><Image height={50} width={50} className="rounded-full" src="/tea.gif" alt="teaimg" /></div>
           </div>
-          <p className="md:p-0 px-5 text-center">A crowdfunding platform for creators. Get funded by your fans and followers. Start now!</p>
+          <p className="md:p-0 px-5 text-center">A crowdfunding platform for creators. Get funded by your fans and followers. Start now&#33;</p>
 
           <div className="btn md:p-0 pt-2">
             <Link href={'/login'}>

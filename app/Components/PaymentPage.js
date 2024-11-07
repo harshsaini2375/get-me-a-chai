@@ -15,7 +15,7 @@ import Image from 'next/image'
 
 const PaymentPage = ({ username }) => {
 
-    const [paymentform, setpaymentform] = useState({})
+    const [paymentform, setpaymentform] = useState({name:"", message:"", amount:""})
     const [currentuser, setcurrentuser] = useState({})
     const [currentpayments, setcurrentpayments] = useState([])
     const totalpay = useRef(0)
@@ -38,17 +38,17 @@ const PaymentPage = ({ username }) => {
 
     useEffect(() => {
         if (params.get("paymentdone") === "true") {
-            toast('Payment done', {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
+            // toast('Payment done', {
+            //     position: "top-right",
+            //     autoClose: 5000,
+            //     hideProgressBar: false,
+            //     closeOnClick: true,
+            //     pauseOnHover: true,
+            //     draggable: true,
+            //     progress: undefined,
+            //     theme: "light",
 
-            });
+            // });
             router.push(`/${username}`)
         }
 
@@ -157,7 +157,7 @@ const PaymentPage = ({ username }) => {
                         <div className="caption text-lg">You can always donate for a Chai</div>
                         <div className='flex justify-center items-center gap-3'>
                             <div className="info text-slate-500">{currentpayments.length} Payments . </div>
-                            <div className="info text-slate-500"> ₹{gettotal()} raised</div>
+                            <div className="info text-slate-500">  &#8377;{gettotal()} raised</div>
                         </div>
                     </div>
                     <div className="payment m-auto w-[95vw] lg:w-[70vw] flex items-center  lg:flex-row flex-col gap-10">
@@ -168,7 +168,7 @@ const PaymentPage = ({ username }) => {
 
                                 return <li key={element.oid} className='border border-black p-1 rounded-full pl-2 list-none flex gap-1  items-center m-3'>
                                     <Image  className=' border  border-black rounded-full' width={35} height={35} src="/man.gif" alt="img" />
-                                    <div className='text-left' >{element.name} donated ₹{element.amount} with a message "{element.message}"</div>
+                                    <div className='text-left' >{element.name} donated  &#8377;{element.amount} with a message "{element.message}"</div>
                                 </li>
 
                             })}
@@ -185,9 +185,9 @@ const PaymentPage = ({ username }) => {
                                 <button onClick={() => { pay(Number.parseInt(paymentform.amount)) }} disabled={!paymentform.name || !paymentform.message || !paymentform.amount} type="button" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800  rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 font-bold disabled:opacity-40 ">Pay</button>
                                 <div className="amount flex gap-3">
 
-                                    <button onClick={() => { pay(Number.parseInt(30)) }} className='border border-black px-2 py-1 bg-slate-200 font-bold rounded-md'>Pay ₹30</button>
-                                    <button onClick={() => { pay(Number.parseInt(50)) }} className='border border-black px-2 py-1 bg-slate-200 font-bold rounded-md'>Pay ₹50</button>
-                                    <button onClick={() => { pay(Number.parseInt(100)) }} className='border border-black px-2 py-1 bg-slate-200 font-bold rounded-md'>Pay ₹100</button>
+                                    <button onClick={() => { pay(Number.parseInt(30)) }} className='border border-black px-2 py-1 bg-slate-200 font-bold rounded-md'>Pay  &#8377;30</button>
+                                    <button onClick={() => { pay(Number.parseInt(50)) }} className='border border-black px-2 py-1 bg-slate-200 font-bold rounded-md'>Pay  &#8377;50</button>
+                                    <button onClick={() => { pay(Number.parseInt(100)) }} className='border border-black px-2 py-1 bg-slate-200 font-bold rounded-md'>Pay  &#8377;100</button>
                                 </div>
                             </div>
                         </div>
