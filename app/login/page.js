@@ -15,7 +15,7 @@ const Page = () => {
         if (session) {
             router.push(`/${session.user.name}`)
         }
-        
+        // changes
 
     }, [router, session])
 
