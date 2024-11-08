@@ -15,15 +15,15 @@ const Page = () => {
         if (session) {
             router.push(`/${session.user.name}`)
         }
-        // dashboard
+        
 
     }, [router, session])
 
     return (
         <>
             <h2 className='text-white  text-2xl font-bold text-center py-10'>Login to get your fans support</h2>
-            <div className='loginpage text-white mx-5 md:mx-0 flex justify-center  h-[45vh]'>
-                <div className="border  rounded-md w-full max-w-sm mx-1  p-6 border-white dark:bg-gray-900" id="login-model">
+            <div className='Loginpage text-white mx-5 md:mx-0 flex justify-center  h-[45vh]'>
+                <div className="border  rounded-md w-full max-w-sm mx-1  p-6 border-white dark:bg-gray-900" id="Login-model">
 
                     <p className="text-2xl font-bold dark:text-white text-center">Login to Continue</p>
                     <p className="dark:text-gray-200 text-center">It will take less than two minutes</p>

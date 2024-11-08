@@ -20,7 +20,7 @@ const Page = () => {
   useEffect(() => {
 
     if (!session) {
-      router.push("/login")
+      router.push("/Login")
     } else {
       getdata()
     }

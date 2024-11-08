@@ -19,7 +19,7 @@ const Navbar = () => {
           <div>Buy me a Chai</div>
         </Link>
         <ul className='flex gap-0 md:gap-5 pt-2 justify-center'>
-          {!session && <Link href="/login">
+          {!session && <Link href="/Login">
             <button type="button" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Login</button>
           </Link>}
 
@@ -37,13 +37,13 @@ const Navbar = () => {
            
               <Link href={`/${session.user.name}`} ><div className="block px-4 py-1 text-gray-800 hover:bg-gray-100">Profile</div></Link>
 
-              <Link href="/dashboard" ><div className="block px-4 py-1 text-gray-800 hover:bg-gray-100">Dashboard</div></Link>
+              <Link href="/Dashboard" ><div className="block px-4 py-1 text-gray-800 hover:bg-gray-100">Dashboard</div></Link>
 
             </div>
           </div>
           </>}
 
-          {session && <Link href="/login">
+          {session && <Link href="/Login">
             <button onClick={() => { signOut() }} type="button" className="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Logout</button>
           </Link>}
 

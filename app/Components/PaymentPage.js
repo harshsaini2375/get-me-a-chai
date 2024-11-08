@@ -27,7 +27,7 @@ const PaymentPage = ({ username }) => {
     useEffect(() => {
 
         if (!session) {
-            router.push("/login")
+            router.push("/Login")
         } else {
             getdata(username)
         }
