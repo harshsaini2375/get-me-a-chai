@@ -15,6 +15,7 @@ const Page = () => {
         if (session) {
             router.push(`/${session.user.name}`)
         }
+        // dashboard
 
     }, [router, session])
 
