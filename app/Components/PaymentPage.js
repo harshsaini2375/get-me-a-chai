@@ -27,7 +27,7 @@ const PaymentPage = ({ username }) => {
     useEffect(() => {
 
         if (!session) {
-            router.push("/Login")
+            router.push("/login")
         } else {
             getdata(username)
         }
@@ -78,7 +78,7 @@ const PaymentPage = ({ username }) => {
             "description": "Test Transaction",
             "image": "https://example.com/your_logo",
             "order_id": oid, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-            "callback_url": `http://localhost:3000/api/razorpay`,
+            "callback_url": `${process.env.NEXTAUTH_URL}/api/razorpay`,
             "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
                 name: 'Harsh Saini',
                 email: 'harsh@example.com',

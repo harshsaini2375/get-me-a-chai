@@ -17,7 +17,7 @@ const Page = () => {
         }
         // changes
 
-    }, [router, session])
+    }, [ session])
 
     return (
         <>
