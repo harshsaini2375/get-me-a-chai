@@ -37,6 +37,7 @@ const Page = () => {
 
     await updateprofile(element, session.user.name)
      update()
+    //  not using toast because it cause errors
 
     // toast("Profile updated", {
     //   position: "top-right",
