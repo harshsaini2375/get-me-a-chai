@@ -142,14 +142,14 @@ const PaymentPage = ({ username }) => {
 
             <div className="cont h-[83vh] max-sm:h-[84vh] max-xl:h-[91vh] overflow-y-scroll ">
 
-                <div className="bgimage border-2 border-black h-[25vh] lg:h-[45vh] w-full bg-slate-400 object-contain   overflow-hidden">
+                <div className="bgimage border-2 border-black h-[25vh] lg:h-[45vh] w-full bg-slate-400 object-contain   overflow-hidden relative">
                     
-                    <Image  objectfit='cover' width={100} height={40} className='  w-full h-[45vh]' src={currentuser.coverpicture?currentuser.coverpicture:"./bgimagenew.jpg"} alt="backgroundimage" />
+                    <Image layout='fill' objectFit='cover' className='  w-full h-[45vh] object-center' src={currentuser.coverpicture?currentuser.coverpicture:"https://i.pinimg.com/originals/18/fe/ed/18feedf7632bebc2d1b1797e0bdbefe0.gif"} alt="backgroundimage" />
                 </div>
                 <div className="main  text-center bg-white text-black pb-10 ">
 
                     <div className='profileimg border border-black h-[15vh] rounded-xl w-28 relative max-sm:left-[38%] left-[46%] bottom-[8vh] object-contain   overflow-hidden'>
-                    <Image layout='fill' objectfit='contain' className='rounded-xl  w-full h-full' src={currentuser.profilepicture?currentuser.profilepicture:"./pokeball"} alt="profilepicture" />
+                    <Image layout='fill' objectfit='contain' className='rounded-xl  w-full h-full' src={currentuser.profilepicture?currentuser.profilepicture:"/pokeball.png"} alt="profilepicture" />
                     </div>
 
                     <div className='info bottom-10 relative'>

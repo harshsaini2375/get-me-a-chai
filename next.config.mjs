@@ -17,6 +17,11 @@ const nextConfig = {
         hostname: 'i.pinimg.com',
 
       },
+      {
+        protocol: 'https',
+        hostname: 'th.bing.com',
+
+      },
     ],
   },
 }

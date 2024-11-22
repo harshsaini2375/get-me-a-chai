@@ -14,7 +14,8 @@ const Page = () => {
     useEffect(() => {
 
         if (session) {
-            router.push(`/${session.user.name}`)
+            router.push(`/dashboard`)
+            // router.push(`/${session.user.name}`)
         }
         
 
