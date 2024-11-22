@@ -15,7 +15,7 @@ import Image from 'next/image'
 
 const PaymentPage = ({ username }) => {
 
-    const [paymentform, setpaymentform] = useState({name:"", message:"", amount:""})
+    const [paymentform, setpaymentform] = useState({ name: "", message: "", amount: "" })
     const [currentuser, setcurrentuser] = useState({})
     const [currentpayments, setcurrentpayments] = useState([])
     const totalpay = useRef(0)
@@ -78,7 +78,7 @@ const PaymentPage = ({ username }) => {
             "description": "Test Transaction",
             "image": "https://example.com/your_logo",
             "order_id": oid, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-            "callback_url": `${process.env.NEXTAUTH_URL}/api/razorpay`,
+            "callback_url": `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/razorpay`,
             "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
                 name: 'Harsh Saini',
                 email: 'harsh@example.com',
@@ -137,19 +137,18 @@ const PaymentPage = ({ username }) => {
                 theme="light"
             />
             <ToastContainer />
-
             <Script src="https://checkout.razorpay.com/v1/checkout.js"></Script>
 
             <div className="cont h-[83vh] max-sm:h-[84vh] max-xl:h-[91vh] overflow-y-scroll ">
 
                 <div className="bgimage border-2 border-black h-[25vh] lg:h-[45vh] w-full bg-slate-400 object-contain   overflow-hidden relative">
-                    
-                    <Image layout='fill' objectFit='cover' className='  w-full h-[45vh] object-center' src={currentuser.coverpicture?currentuser.coverpicture:"https://i.pinimg.com/originals/18/fe/ed/18feedf7632bebc2d1b1797e0bdbefe0.gif"} alt="backgroundimage" />
+
+                    <Image layout='fill' objectFit='cover' className='  w-full h-[45vh] object-center' src={currentuser.coverpicture ? currentuser.coverpicture : "https://i.pinimg.com/originals/18/fe/ed/18feedf7632bebc2d1b1797e0bdbefe0.gif"} alt="backgroundimage" />
                 </div>
                 <div className="main  text-center bg-white text-black pb-10 ">
 
                     <div className='profileimg border border-black h-[15vh] rounded-xl w-28 relative max-sm:left-[38%] left-[46%] bottom-[8vh] object-contain   overflow-hidden'>
-                    <Image layout='fill' objectfit='contain' className='rounded-xl  w-full h-full' src={currentuser.profilepicture?currentuser.profilepicture:"/pokeball.png"} alt="profilepicture" />
+                        <Image layout='fill' objectfit='contain' className='rounded-xl  w-full h-full' src={currentuser.profilepicture ? currentuser.profilepicture : "/pokeball.png"} alt="profilepicture" />
                     </div>
 
                     <div className='info bottom-10 relative'>
@@ -167,7 +166,7 @@ const PaymentPage = ({ username }) => {
                             {currentpayments.map((element) => {
 
                                 return <li key={element.oid} className='border border-black p-1 rounded-full pl-2 list-none flex gap-1  items-center m-3'>
-                                    <Image  className=' border  border-black rounded-full' width={35} height={35} src="/man.gif" alt="img" />
+                                    <Image className=' border  border-black rounded-full' width={35} height={35} src="/man.gif" alt="img" />
                                     <div className='text-left' >{element.name} donated  &#8377;{element.amount} with a message &#34;{element.message}&#34;</div>
                                 </li>
 
