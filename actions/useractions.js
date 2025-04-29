@@ -9,7 +9,10 @@ export const initiate = async (amount, paymentform, to_user, isdone, currentuser
 
     await connectDB();
     console.log(currentuser);
-
+    // first create instance
+    // second create options
+    // third with the help of instance and options create generateorder
+    // then return generateorder
     var instance = new Razorpay({ key_id: currentuser.razorpayid, key_secret: currentuser.razorpaysecret })
 
     let options = {

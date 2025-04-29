@@ -64,28 +64,27 @@ const PaymentPage = ({ username }) => {
 
 
     const pay = async (amount) => {
-
+        // first generate order id with the help of initiate
+        // use this order id in makink options
+        // pass  this options to open payment window
+        // also add script as we add below
         let a = await initiate(amount, paymentform, username, false, currentuser)
         let oid = a.id
         console.log(oid);
 
         var options = {
-            "key_id": currentuser.razorpayid,
-            "key_secret": currentuser.razorpaysecret,
-            "amount": Number.parseInt(amount) * 100, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+            "key": currentuser.razorpayid,
+            "amount": Number.parseInt(amount) * 100,
             "currency": "INR",
-            "name": "Buy Me A Chai", //your business name
+            "name": "Buy Me A Chai", 
             "description": "Test Transaction",
-            "image": "https://example.com/your_logo",
-            "order_id": oid, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+           
+            "order_id": oid,
             "callback_url": `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/razorpay`,
-            "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+            "prefill": { 
                 name: 'Harsh Saini',
                 email: 'harsh@example.com',
                 contact: '9999999999'
-            },
-            "notes": {
-                address: 'Rohtak, Haryana'
             },
             "theme": {
                 "color": "#3399cc"
