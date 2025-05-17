@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
 
     <div>
-      <nav className='border md:h-16 px-5 border-black flex-col md:flex-row flex justify-between  bg-slate-950 text-white'>
+      <nav className='border md:h-16 px-5  flex-col md:flex-row flex justify-between  bg-gray-100 text-black'>
         <Link href='/' className="flex justify-center items-center gap-2">
           <div className="w-10"><Image height={50} width={50} className="rounded-full" src="/tea.gif" alt="tea" /></div>
           <div>Buy me a Chai</div>

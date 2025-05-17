@@ -26,8 +26,9 @@ const PaymentPage = ({ username }) => {
 
     useEffect(() => {
 
+
         if (!session) {
-            router.push("/login")
+            router.push("/")
         } else {
             getdata(username)
         }
@@ -68,7 +69,8 @@ const PaymentPage = ({ username }) => {
         // use this order id in makink options
         // pass  this options to open payment window
         // also add script as we add below
-        let a = await initiate(amount, paymentform, username, false, currentuser)
+        try{
+            let a = await initiate(amount, paymentform, username, false, currentuser)
         let oid = a.id
         console.log(oid);
 
@@ -80,7 +82,34 @@ const PaymentPage = ({ username }) => {
             "description": "Test Transaction",
            
             "order_id": oid,
-            "callback_url": `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/api/razorpay`,
+             "handler": async function(response) {
+                try {
+                  // Send payment verification to your API
+                  const verification = await fetch('/api/razorpay', {
+                    method: 'POST',
+                    body: new URLSearchParams({
+                      razorpay_payment_id: response.razorpay_payment_id,
+                      razorpay_order_id: response.razorpay_order_id,
+                      razorpay_signature: response.razorpay_signature
+                    }),
+                    headers: {
+                      'Content-Type': 'application/x-www-form-urlencoded',
+                    }
+                  });
+                  
+                  const result = await verification.json();
+                  
+                  if (result.success) {
+                    // Redirect on successful verification
+                    window.location.href = `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/paymentdone?oid=${oid}&amount=${amount}`;
+                  } else {
+                    alert("Payment verification failed");
+                  }
+                } catch (error) {
+                  console.error("Payment error:", error);
+                  alert("Payment processing failed");
+                }
+              },
             "prefill": { 
                 name: 'Harsh Saini',
                 email: 'harsh@example.com',
@@ -94,6 +123,11 @@ const PaymentPage = ({ username }) => {
         // here we use window.razorpay to open window
         var rzp1 = new window.Razorpay(options);
         rzp1.open();
+    }
+    catch (error) {
+            console.error("Payment initialization failed:", error);
+            alert("Failed to initialize payment");
+          }
 
     }
 
@@ -140,14 +174,14 @@ const PaymentPage = ({ username }) => {
 
             <div className="cont h-[83vh] max-sm:h-[84vh] max-xl:h-[91vh] overflow-y-scroll ">
 
-                <div className="bgimage border-2 border-black h-[25vh] lg:h-[45vh] w-full bg-slate-400 object-contain   overflow-hidden relative">
+                <div className="bgimage border-2 border-black h-[25vh] lg:h-[45vh] w-full bg-slate-400 object-contain overflow-hidden relative">
 
-                    <Image layout='fill' objectFit='cover' className='  w-full h-[45vh] object-center' src={currentuser.coverpicture ? currentuser.coverpicture : "https://i.pinimg.com/originals/18/fe/ed/18feedf7632bebc2d1b1797e0bdbefe0.gif"} alt="backgroundimage" />
+                    <Image layout='fill' objectFit='cover'  className='object-top   w-full h-[45vh] ' src={currentuser.coverpicture ? currentuser.coverpicture : "/background.jpg"} alt="backgroundimage" />
                 </div>
                 <div className="main  text-center bg-white text-black pb-10 ">
 
                     <div className='profileimg border border-black h-[15vh] rounded-xl w-28 relative max-sm:left-[38%] left-[46%] bottom-[8vh] object-contain   overflow-hidden'>
-                        <Image layout='fill' objectfit='contain' className='rounded-xl  w-full h-full' src={currentuser.profilepicture ? currentuser.profilepicture : "/pokeball.png"} alt="profilepicture" />
+                        <Image layout='fill' objectfit='contain' className='rounded-xl  w-full h-full' src={currentuser.profilepicture ? currentuser.profilepicture : "/profile.jpg"} alt="profilepicture" />
                     </div>
 
                     <div className='info bottom-10 relative'>

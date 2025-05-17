@@ -22,6 +22,11 @@ const nextConfig = {
         hostname: 'th.bing.com',
 
       },
+      {
+        protocol: 'https',
+        hostname: 'c10.patreonusercontent.com',
+
+      },
     ],
   },
 }

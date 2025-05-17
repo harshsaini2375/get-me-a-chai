@@ -11,6 +11,16 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        rise: "rise 15s infinite ease-in",
+      },
+      keyframes: {
+        rise: {
+          "0%": { bottom: "-100px", transform: "translateX(0)" },
+          "50%": { transform: "translateX(100px)" },
+          "100%": { bottom: "1000px", transform: "translateX(-200px)" },
+        },
+      },
     },
   },
   plugins: [],

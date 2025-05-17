@@ -39,17 +39,24 @@ export const POST = async (req) => {
   }, body.razorpay_signature, secret)
   console.log(verify);
 
+    if (!verify) {
+    return NextResponse.json(
+      { success: false, message: "Payment not verified" },
+      { status: 400 }
+    );
+  }
+
+
   // update payment pending payment that exists in our database to done: true
+
   if (verify) {
-
+    console.log("payment verified");
     let updated = await Payment.findOneAndUpdate({ oid: body.razorpay_order_id }, { done: true }, { new: true })
-
-    return NextResponse.redirect(`${process.env.NEXTAUTH_URL}/${updated.to_user}?paymentdone=true`)
-
+    
+    // Return JSON instead of redirect
+    return NextResponse.json({
+      success: true,
+      redirectUrl: `${process.env.NEXT_PUBLIC_NEXTAUTH_URL}/${updated.to_user}`
+    });
   }
-  else {
-    return NextResponse.json({ success: false, message: "payment not verified" })
-
-  }
-
 }
