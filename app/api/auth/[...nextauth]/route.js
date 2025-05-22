@@ -2,6 +2,8 @@ import NextAuth from 'next-auth'
 import GitHubProvider from "next-auth/providers/github";
 import User from '@/models/User';
 import connectDB from '@/db/connectDB';
+import GoogleProvider from "next-auth/providers/google";
+
 
 
 const authoptions = NextAuth({
@@ -12,6 +14,10 @@ const authoptions = NextAuth({
       httpOptions: {
         timeout: 10000, // Increase timeout to 10 seconds
       }
+    }), 
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET
     })
   ],
 

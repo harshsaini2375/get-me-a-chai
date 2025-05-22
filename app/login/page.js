@@ -33,7 +33,7 @@ const Page = () => {
 
                     <div className="mt-4">
                         <a href="#" className="block">
-                            <button className="w-full text-center py-2 my-3 border flex items-center justify-center border-black rounded-lg text-slate-700 bg-white hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+                            <button onClick={() => {signIn("google") } } className="w-full text-center py-2 my-3 border flex items-center justify-center border-black rounded-lg text-slate-700 bg-white hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
                                 <Image width={20} height={20} objectFit='cover' src="https://www.svgrepo.com/show/355037/google.svg" className="w-5 h-5 mr-2" alt="Google Icon" />
                                 <span className="dark:text-gray-300">Login with Google</span>
                             </button>
