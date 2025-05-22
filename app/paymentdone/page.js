@@ -33,7 +33,7 @@ const Payment = () => {
              { searchParams.get("oid")}
             </p>
           </div>
-          <div className="flex justify-between pt-4 border-t border-gray-200">
+          <div className="flex justify-around pt-4 border-t border-gray-200">
                   <span className="text-gray-500">Amount Paid</span>
                   <span className="font-bold text-lg text-blue-600">{ searchParams.get("amount")}</span>
                 </div>

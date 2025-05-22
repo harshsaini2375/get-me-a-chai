@@ -72,7 +72,6 @@ const PaymentPage = ({ username }) => {
         try{
             let a = await initiate(amount, paymentform, username, false, currentuser)
         let oid = a.id
-        console.log(oid);
 
         var options = {
             "key": currentuser.razorpayid,

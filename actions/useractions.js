@@ -8,7 +8,6 @@ import User from "@/models/User";
 export const initiate = async (amount, paymentform, to_user, isdone, currentuser) => {
 
     await connectDB();
-    console.log(currentuser);
     // first create instance
     // second create options
     // third with the help of instance and options create generateorder
@@ -63,7 +62,6 @@ export const fetchpayments = async (username) => {
         
         delete obj._id;
         delete obj.__v;   
-        // console.log(obj);
             
     })
 

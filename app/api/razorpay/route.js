@@ -29,7 +29,6 @@ export const POST = async (req) => {
   // fetching razorpaysecret from the User in database
   let u = await User.findOne({name:pay.to_user})
   let secret = u.razorpaysecret
-  console.log(secret);
   
 
   // verify payment
@@ -37,7 +36,6 @@ export const POST = async (req) => {
     "order_id": body.razorpay_order_id,
     "payment_id": body.razorpay_payment_id
   }, body.razorpay_signature, secret)
-  console.log(verify);
 
     if (!verify) {
     return NextResponse.json(

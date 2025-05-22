@@ -13,10 +13,10 @@ const Navbar = () => {
   return (
 
     <div>
-      <nav className='border md:h-16 px-5  flex-col md:flex-row flex justify-between  bg-gray-100 text-black'>
-        <Link href='/' className="flex justify-center items-center gap-2">
+      <nav className='border md:h-16 px-5  md:gap-0 gap-2 flex justify-between  bg-gray-100 text-black'>
+        <Link href='/' className="flex  justify-center items-center gap-2">
           <div className="w-10"><Image height={50} width={50} className="rounded-full" src="/tea.gif" alt="tea" /></div>
-          <div>Buy me a Chai</div>
+          <div className='md:block hidden'>Buy me a Chai</div>
         </Link>
         <ul className='flex gap-0 md:gap-5 pt-2 justify-center'>
           {!session && <Link href="/login">

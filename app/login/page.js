@@ -23,6 +23,7 @@ const Page = () => {
 
     return (
         <>
+        <div className="login h-[80vh]">
             <h2 className='text-black  text-2xl font-bold text-center py-10'>Login to get your fans support</h2>
             <div className='Loginpage text-black mx-5 md:mx-0 flex justify-center  h-[45vh]'>
                 <div className="border  rounded-md w-full max-w-sm mx-1  p-6 border-black dark:bg-gray-900" id="Login-model">
@@ -49,6 +50,7 @@ const Page = () => {
                     </div>
 
                 </div>
+            </div>
             </div>
         </>
     )
