@@ -23,7 +23,8 @@ const authoptions = NextAuth({
 
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
-      if (account.provider = "github") {
+         if (account.provider == "github" || account.provider == "google") {
+
         
         //  connect to our database ,chai is the database name 
         await connectDB();
